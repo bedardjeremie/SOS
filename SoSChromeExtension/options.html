@@ -1,21 +1,38 @@
 <!DOCTYPE html>
-  <html>
-    <head>
-      <style>
-        button {
-          height: 30px;
-          width: 30px;
-          outline: none;
-          margin: 10px;
-        }
-      </style>
-    </head>
-    <body>
-      <div id="buttonDiv">
+<html>
+
+<head>
+  <link rel="stylesheet" href="./bootstrap-4/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link href="options.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="jumbotron">
+    <h1 class="display-4">SoS Settings</h1>
+    <p class="lead">Let's set your budget!</p>
+    <hr class="my-4">
+    <p>We use your budget to show you whether you're on track to meet your spending goals!</p>
+    <form id='budget-form'>
+      <div class="form-row align-items-center">
+        <div class="col-auto">
+          <div class="input-group mb-2">
+            <div class="input-group-prepend">
+              <div class="input-group-text">$</div>
+            </div>
+            <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Budget">
+          </div>
+        </div>
+
+        <div class="col-auto">
+          <button type="submit" class="btn btn-primary mb-2">Submit</button>
+        </div>
       </div>
-      <div>
-        <p>Choose a different background color!</p>
-      </div>
-    </body>
-    <script src="options.js"></script>
-  </html>
+    </form>
+  </div>
+</body>
+<script src="./bootstrap-4/js/jquery-slim.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="./bootstrap-4/js/bootstrap.min.js" ></script>
+<script src="options.js"></script>
+
+</html>
