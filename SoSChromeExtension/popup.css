@@ -1,0 +1,39 @@
+button {
+  height: 30px;
+  width: 30px;
+  outline: none;
+}
+
+body{
+  min-width: 300px;
+  padding: 10px;
+  font-family: 'Lato', sans-serif;
+  color: #01324a;
+  background-image: linear-gradient(to bottom right, #80d0c7, #1b73a6);
+
+}
+
+.title{
+  font-size: 20px;
+}
+
+section{
+  background-image: linear-gradient(to bottom right, #f5f7fa, #c3cfe2);
+  min-width: 250px;
+  min-height: 50px;
+  border-radius: 3px;
+  margin-bottom:5px;
+  padding: 5px;
+}
+#budget-section{
+
+}
+#oppcost-section{
+    animation-delay: 0.2s;
+}
+#invest-section{
+    animation-delay: 0.4s;
+}
+#reco-section{
+    animation-delay: 0.6s;
+}

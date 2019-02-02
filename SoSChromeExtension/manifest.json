@@ -1,0 +1,23 @@
+{
+  "name": "SoS Stop Overspending Chrome Application",
+  "version": "1.0",
+  "description": "Chrome extension that triggrs in Amazon and stops you from spending more",
+  "permissions": ["activeTab","declarativeContent", "storage"],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "page_action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+    "16": "images/economic-investment16.png",
+    "32": "images/economic-investment32.png"
+  }
+},
+"icons": {
+  "16": "images/economic-investment16.png",
+  "32": "images/economic-investment32.png"
+},
+"options_page": "options.html",
+  "manifest_version": 2
+}
