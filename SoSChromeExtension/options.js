@@ -1,4 +1,5 @@
 $( document ).ready(function() {
+  
   let budgetForm = $('#budget-form');
   let budgetAmt = $('#inlineFormInputGroup');
       budgetForm.submit(function(e) {

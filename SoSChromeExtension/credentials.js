@@ -99,3 +99,4 @@ function startSignIn() {
 
 window.onload = function() {
   initApp();
+};
