@@ -1,15 +1,13 @@
-let page = document.getElementById('buttonDiv');
-const kButtonColors = ['#3aa757', '#e8453c', '#f9bb2d', '#4688f1'];
-function constructOptions(kButtonColors) {
-  for (let item of kButtonColors) {
-    let button = document.createElement('button');
-    button.style.backgroundColor = item;
-    button.addEventListener('click', function() {
-      chrome.storage.sync.set({color: item}, function() {
-        console.log('color is ' + item);
-      })
-    });
-    page.appendChild(button);
-  }
-}
-constructOptions(kButtonColors);
+$( document ).ready(function() {
+  let budgetForm = $('#budget-form');
+  let budgetAmt = $('#inlineFormInputGroup');
+      budgetForm.submit(function(e) {
+        e.preventDefault();
+        console.log(budgetAmt.val());
+        //stored as int
+        let budget = parseInt(budgetAmt.val());
+        chrome.storage.sync.set({budget: budget}, function() {
+          console.log('budget has been set to: ' + budget.toString());
+        })
+      });
+  });
