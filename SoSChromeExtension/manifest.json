@@ -14,10 +14,22 @@
     "32": "images/economic-investment32.png"
   }
 },
+"background": {
+  "page": "background.html"
+},
 "icons": {
   "16": "images/economic-investment16.png",
   "32": "images/economic-investment32.png"
 },
 "options_page": "options.html",
+"content_security_policy":"script-src 'self' https://www.gstatic.com/ https://*.firebaseio.com https://www.googleapis.com; object-src 'self'",
+"oauth2": {
+  "client_id": "586777681022-q5fb5hu3mb3n3qjpgjhhnlc8u7riki1a.apps.googleusercontent.com",
+  "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email",
+    "https://www.googleapis.com/auth/userinfo.profile"
+  ]
+},
+"key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAr1UxGptKKwlcYjJZUHIuX6fDgtvaVadXoaOiZ56H4jW6sd4tN5FE9uOQkDhBdKr9ABw2XBP+Lmrrv0aK+LUm+20mdzu7XGjW9KPuYo2yaez3rfjwAwGwaz6WmVrJH7ddFmcyfjD+oUp+QhHS61idjzJQ1+4HKHTXnW7pV2E7wUj3t+UV3mkeIyo+MxKq6K4L6MQ2JQV+zPZkYG8VcnWxpbccD20PXEigD92kwuY1JoFR//zHHrMK8xUT+v7oYaUlTkBEBS/P+uftfRLtaqt90bzVDMprLtmeeqXzxPtYs69zbz/sM3rwMUx21PPKRKF07C3/EGt68K/DSISYaXbOCwIDAQAB",
   "manifest_version": 2
 }
