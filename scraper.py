@@ -21,18 +21,28 @@ def scrape(url, budget):
 	soup = BeautifulSoup(page.text, 'html.parser')
 	price_box = soup.find('span', attrs={'class':'a-size-medium a-color-price'})
 	price_str = price_box.text
-	price = float(price_str[price_str.find(' ') + 1:])
+	price_2 = price_str[price_str.find("$") + 2:]
+	price_3 = price_2[:price_2.find("\n")]
+	price = float(price_3)
 
+	graph_data = []
+	pv = price
+	for i in range(21):
+		graph_data.append(round(pv))
+		pv = pv * 1.07
+	print(graph_data)
 	response = {
 		'alternative': {
 			'qty': round(price/2),
 			'name': 'coffees'
 			},
 		'stock': {
-			'qty': round(price/31)
+			'qty': round(price/12.59),
+			'name': "Aphria (APHA)"
 			},
 		'mutual_fund': {
-			'fv': price * (1.07 ** 20)
+			'fv': price * (1.07 ** 20),
+			'graph': graph_data
 			}
 	}
 	response_json = json.dumps(response)
@@ -52,7 +62,7 @@ def Analyze():
 	#print("what Flask received: ", url, budget)
 	# final_response = new Response()
 	# return url
-	return scrape("https://www.amazon.ca/dp/B0792JYXZK/", 1234)
+	return scrape(req['amazonUrl'], req['budget'])
 
 if __name__ == "__main__":
 	app.run()
