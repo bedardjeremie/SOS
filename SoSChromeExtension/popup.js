@@ -15,7 +15,7 @@
 });*/
 var link;
 var budgetIn;
-
+console.log("Hello nick")
 chrome.runtime.onMessage.addListener(function(request, sender) {
   message.innerText = sender.tab.url;
   link = sender.tab.url;
@@ -39,16 +39,25 @@ $( document ).ready(function() {
   //   }
   // });
 
-///// below is to post the url
 var url = 'http://127.0.0.1:5000/analyze';
 var data = link;
+let payload = {
+  'amazonUrl': "link",
+  'budget' : "budgetIn"
+}
 
-fetch(url, {
-  method: 'POST', // or 'PUT'
-  body: {'amazonUrl': link, 'budget' : budgetIn}, // data can be `string` or {object}!
-}).then(res => res.json())
-.then(response => console.log('Success:', JSON.stringify(response)))
-.catch(error => console.error('Error:', error));
-
+fetch(url,
+{
+  method: 'POST',
+  headers: {
+    'Accept': "application/json",
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify(payload)
+})
+.then(response => response.text())
+.then(res => console.log(res))
+// .then(response => console.log('Success:', JSON.stringify(response)))
+// .catch(error => console.error('Error:', error));
 
 });

@@ -1,8 +1,13 @@
-from flask import Flask
+from flask import Flask, request
+from flask_cors import CORS, cross_origin
 app = Flask(__name__)
+cors = CORS(app)
 import requests
 from bs4 import BeautifulSoup
 import json
+import sys
+import logging
+app.config['CORS_HEADERS'] = 'Content-Type'
 
 headers = {
     "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
@@ -18,12 +23,6 @@ price_box = soup.find('span', attrs={'class':'a-size-medium a-color-price'})
 price_str = price_box.text
 price = float(price_str[price_str.find(' ') + 1:])
 
-item_dict = {
-	'price':price,
-	'coffees': 
-			}
-item_json = json.dumps(item_dict)
-
 response = {
 	'alternative': {
 		'qty': round(price/2),
@@ -31,23 +30,30 @@ response = {
 		},
 	'stock': {
 		'qty': round(price/31)
-
-		}
+		},
 	'mutual_fund': {
 		'fv': price * (1.07 ** 20)
 		}
-	''
-
-
 }
+response_json = json.dumps(response)
 
 @app.route("/")
 def pushData():
 	return "The SOS Flask server is running"
 
-@app.route('/analyze', methods=['GET', 'POST'])
+@app.route('/analyze', methods=['POST'])
+@cross_origin()
 def Analyze():
-	return request.form['amazon_url']
+	#content = request.json
+	app.logger.info("handled request")
+	#print(request.args.get("hello"))
+	print(request)
+	# url = request.form.get('amazonUrl')
+	# budget = request.form.get('budgetIn')
+	#print("what Flask received: ", url, budget)
+	# final_response = new Response()
+	return response_json
+	#return "analyze page"
 
 if __name__ == "__main__":
 	app.run()
