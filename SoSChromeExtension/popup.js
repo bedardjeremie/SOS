@@ -97,6 +97,8 @@ function retrieveData(payload){
     let oppcost = document.getElementById("oppcost-text")
     let stockText = document.getElementById("stock-text")
     let investText = document.getElementById("invest-text")
+    let budgetText = document.getElementById("budget-text")
+    let finalBudgetText = ". " + res.budget;
     let finalStockText = "With this cash you could buy " + res.stock.qty.toString() + " shares of " + res.stock.name + "!";
     let finalInvestText = "You could invest in our mutual funds, they could be worth $" + res.mutual_fund.fv.toFixed(2).toString() + "!"
     let finalTextOppCost = "With this cash you could buy " + res.alternative.qty.toString() + " " + res.alternative.name + "!";
@@ -104,6 +106,7 @@ function retrieveData(payload){
     oppcost.innerHTML = finalTextOppCost;
     stockText.innerHTML = finalStockText;
     investText.innerHTML = finalInvestText;
+    budgetText.innerHTML = budgetText.innerHTML + finalBudgetText;
     setChart(res.mutual_fund.graph)
   })
 }
