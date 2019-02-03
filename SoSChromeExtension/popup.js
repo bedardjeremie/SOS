@@ -13,9 +13,49 @@
     message.innerText = request.source;
   }
 });*/
+
 var link;
 var budgetIn;
 
+let stockGrowthTen = function(price){
+  let arr = [];
+  let growPrice = 0;
+  arr.push(price)
+  for(var year = 1; year < 10; year++){
+    growPrice = arr[year-1] * 1.07;
+    arr.push(growPrice);
+  }
+  return arr;
+}
+let rawPrices = stockGrowthTen(50);
+console.log(rawPrices)
+var ctx = document.getElementById("compoundChart").getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: [1,2,3,4,5,6,7,8,9,10],
+        datasets: [{
+            label: '$ You Can Make',
+            data: rawPrices,
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255,99,132,1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:false
+                }
+            }]
+        }
+    }
+});
 chrome.runtime.onMessage.addListener(function(request, sender) {
   message.innerText = sender.tab.url;
   link = sender.tab.url;
