@@ -131,7 +131,7 @@ $( document ).ready(function() {
     console.log(url)
     var payload = {
       'amazonUrl': url,
-      'budget' : 1234
+      'budget' : 123
     }
     console.log(payload)
     retrieveData(payload)

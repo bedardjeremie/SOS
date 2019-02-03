@@ -8,6 +8,9 @@ chrome.runtime.onInstalled.addListener(function() {
       pageUrl: {urlMatches: '.+//www.amazon.ca/dp/.+',schemes: ['https']}
     }),
     new chrome.declarativeContent.PageStateMatcher({
+      pageUrl: {urlMatches: '.+//www.amazon.ca/gp/.+',schemes: ['https']}
+    }),
+    new chrome.declarativeContent.PageStateMatcher({
       pageUrl: {hostEquals: '.+//www.amazon.com/.+/dp/.+', schemes: ['https']}
     })
     ],
