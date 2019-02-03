@@ -5,7 +5,7 @@ chrome.runtime.onInstalled.addListener(function() {
       pageUrl: {urlMatches: '.+//www.amazon.ca/.+/dp/.+',schemes: ['https']},
     }),
     new chrome.declarativeContent.PageStateMatcher({
-      pageUrl: {hostEquals: 'www.amazon.com', schemes: ['https']},
+      pageUrl: {hostEquals: '.+//www.amazon.com/.+/dp/.+', schemes: ['https']},
     })
     ],
         actions: [new chrome.declarativeContent.ShowPageAction()]
