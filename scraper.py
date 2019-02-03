@@ -52,7 +52,6 @@ def scrape(url, budget):
 			}
 	}
 	
-
 	response_json = json.dumps(response)
 	return response_json
 
@@ -65,11 +64,6 @@ def pushData():
 def Analyze():
 
 	req = request.get_json()
-	
-	# budget = request.form.get('budgetIn')
-	#print("what Flask received: ", url, budget)
-	# final_response = new Response()
-	# return url
 	return scrape(req['amazonUrl'], req['budget'])
 
 if __name__ == "__main__":
