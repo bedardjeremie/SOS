@@ -31,9 +31,12 @@ section{
 #oppcost-section{
     animation-delay: 0.2s;
 }
+#stock-section{
+  animation-delay: 0.4
+}
 #invest-section{
-    animation-delay: 0.4s;
+    animation-delay: 0.6s;
 }
 #reco-section{
-    animation-delay: 0.6s;
+    animation-delay: 0.8s;
 }
