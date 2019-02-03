@@ -30,8 +30,14 @@ def scrape(url, budget):
 	for i in range(21):
 		graph_data.append(round(pv))
 		pv = pv * 1.07
-	print(graph_data)
+	
+	if price < budget:
+		budget_check = "This item is within your budget."
+	else:
+		budget_check = "This item is above your budget."
+
 	response = {
+		'budget': budget_check,
 		'alternative': {
 			'qty': round(price/2),
 			'name': 'coffees'
@@ -45,6 +51,8 @@ def scrape(url, budget):
 			'graph': graph_data
 			}
 	}
+	
+
 	response_json = json.dumps(response)
 	return response_json
 
