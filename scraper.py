@@ -44,16 +44,23 @@ def pushData():
 @app.route('/analyze', methods=['POST'])
 @cross_origin()
 def Analyze():
-	#content = request.json
-	app.logger.info("handled request")
-	#print(request.args.get("hello"))
-	print(request)
-	# url = request.form.get('amazonUrl')
+
+	req = request.get_json()
+	return json.dumps(req)
+	
+	if request.is_xhr:
+		return "it is xhr"
+	elif request.is_json:
+		return "it is json"
+	elif url is None:
+		return "it is none"
+	else:
+		return "not none"
 	# budget = request.form.get('budgetIn')
 	#print("what Flask received: ", url, budget)
 	# final_response = new Response()
-	return response_json
-	#return "analyze page"
+	# return url
+	return "analyze page"
 
 if __name__ == "__main__":
 	app.run()

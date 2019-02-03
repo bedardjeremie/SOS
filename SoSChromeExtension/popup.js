@@ -42,10 +42,10 @@ $( document ).ready(function() {
 var url = 'http://127.0.0.1:5000/analyze';
 var data = link;
 let payload = {
-  'amazonUrl': "link",
-  'budget' : "budgetIn"
+  'amazonUrl': link,
+  'budget' : budgetIn
 }
-
+console.log("from js: ", link, budgetIn)
 fetch(url,
 {
   method: 'POST',
@@ -55,7 +55,7 @@ fetch(url,
   },
   body: JSON.stringify(payload)
 })
-.then(response => response.json())
+.then(response => response.text())
 .then(res => console.log(res))
 // .then(response => console.log('Success:', JSON.stringify(response)))
 // .catch(error => console.error('Error:', error));
