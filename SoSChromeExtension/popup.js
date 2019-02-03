@@ -55,7 +55,7 @@ fetch(url,
   },
   body: JSON.stringify(payload)
 })
-.then(response => response.text())
+.then(response => response.json())
 .then(res => console.log(res))
 // .then(response => console.log('Success:', JSON.stringify(response)))
 // .catch(error => console.error('Error:', error));
