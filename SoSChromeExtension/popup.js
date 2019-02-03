@@ -28,7 +28,7 @@
 function setChart(data){
 let rawPrices = data;
 let xLabels = []
-let count = 1;
+let count = 0;
 data.map(function(x){
   xLabels.push(count);
   count+=1;
@@ -100,7 +100,7 @@ function retrieveData(payload){
     let budgetText = document.getElementById("budget-text")
     let finalBudgetText = ". " + res.budget;
     let finalStockText = "With this cash you could buy " + res.stock.qty.toString() + " shares of " + res.stock.name + "!";
-    let finalInvestText = "You could invest in our mutual funds, they could be worth $" + res.mutual_fund.fv.toFixed(2).toString() + "!"
+    let finalInvestText = "You could invest $" + res.mutual_fund.graph[0].toString() + " in one of our mutual funds. It could be worth $" + res.mutual_fund.fv.toFixed(2).toString() + "!"
     let finalTextOppCost = "With this cash you could buy " + res.alternative.qty.toString() + " " + res.alternative.name + "!";
     console.log(finalTextOppCost);
     oppcost.innerHTML = finalTextOppCost;
