@@ -14,8 +14,8 @@
   }
 });*/
 
-var link;
-var budgetIn;
+let link;
+let budgetIn;
 
 let stockGrowthTen = function(price){
   let arr = [];
@@ -79,11 +79,11 @@ $( document ).ready(function() {
   //   }
   // });
 
-var url = 'http://127.0.0.1:5000/analyze';
-var data = link;
+const url = 'http://127.0.0.1:5000/analyze';
+
 let payload = {
-  'amazonUrl': "link",
-  'budget' : "budgetIn"
+  'amazonUrl': link,
+  'budget' : budgetIn
 }
 
 fetch(url,
@@ -96,7 +96,14 @@ fetch(url,
   body: JSON.stringify(payload)
 })
 .then(response => response.json())
-.then(res => console.log(res))
+.then(function(res){
+  console.log(res);
+  console.log(res.alternative)
+  let oppcost = document.getElementById("oppcost-text")
+  let finalTextOppCost = "With this cash you could buy " + res.alternative.qty.toString() + " " + res.alternative.name + "!"
+  console.log(finalTextOppCost);
+  oppcost.innerHTML = finalTextOppCost;
+})
 // .then(response => console.log('Success:', JSON.stringify(response)))
 // .catch(error => console.error('Error:', error));
 
